@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class AlunosNota {
     public static void main (String args[]) {
         Scanner sc = new Scanner(System.in);
-        double maior = Double.NEGATIVE_INFINITY;
-        double menor = Double.POSITIVE_INFINITY;
+        double maior = Double.NEGATIVE_INFINITY;    //menor valor possível
+        double menor = Double.POSITIVE_INFINITY;       //maior valor possível
         int soma = 0;
         int abaixo = 0;
         int acima = 0;
