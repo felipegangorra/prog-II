@@ -6,6 +6,4 @@ LINHA DE COMANDO: python3 dirlididi.py submit [questão] cwPI0PzUlWP1 [arquivo.j
 
 CANVA: https://canvas.instructure.com/
 
-
-
 */
