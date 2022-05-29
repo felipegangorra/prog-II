@@ -6,9 +6,9 @@ public class Coisa {
        System.out.println("-----");
        registroOnline();
        System.out.println("-----");
-       /*disciplina();
+       disciplina();
        System.out.println("-----");
-       atividadesComplementares();*/
+       //atividadesComplementares();
    }
    public static void descanso() {
        Descanso descanso = new Descanso();
@@ -36,7 +36,7 @@ public class Coisa {
        RegistroTempoOnline tempoP2 = new RegistroTempoOnline("P2");
        System.out.println(tempoP2.toString());
    }
-   /*private static void disciplina() {
+   private static void disciplina() {
        Disciplina prog2 = new Disciplina("PROGRAMACAO 2");
        prog2.cadastraHoras(4);
        prog2.cadastraNota(1, 5.0);
@@ -47,7 +47,7 @@ public class Coisa {
        System.out.println(prog2.aprovado());
        System.out.println(prog2.toString());
    }
-   private static void atividadesComplementares() {
+   /*private static void atividadesComplementares() {
        AtividadesComplementares minhasAtividades = new AtividadesComplementares();
        int horasEstagio = 350;
        int mesesProjeto = 6;

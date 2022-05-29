@@ -3,6 +3,7 @@ package lab2;
  * Representa o registro de tempo online, onde contém a informação sobre a
  * quantidade de horas em que o aluno tem dedicado a disciplina remota.
  * O aluno vai definir a disciplina e o tempo esperado.
+ * @author Felipe Gangorra
  */
 public class RegistroTempoOnline {
     //Nome da disciplina
@@ -59,6 +60,6 @@ public class RegistroTempoOnline {
      * @return string formatada
      */
     public String toString() {
-        return nomeDisciplina + " " + tempoOnline + "/" + metaDeEstudo;
+        return (this.nomeDisciplina + " " + this.tempoOnline + "/" + metaDeEstudo);
     }
 }
