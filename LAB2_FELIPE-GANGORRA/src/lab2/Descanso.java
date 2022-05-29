@@ -8,18 +8,18 @@ semana de descanso, sem contar horas de sono.
 public class Descanso {
 
     // Horas de descanso
-    private int HorasDeDescanso;
+    private int horasDeDescanso;
     // Quantidade de semanas
-    private int NumeroDeSemanas;
+    private int numeroDeSemanas;
     //Status do aluno
-    private String StatusGeral;
+    private String statusGeral;
 
     /* 
     Recebe a quantidade de horas de descanso e armazena o dado.
     @param valor quantidade de horas de descanso
     */
     public void defineHorasDescanso(int valor) {
-        this.HorasDeDescanso = valor;
+        this.horasDeDescanso = valor;
     }
 
     /*
@@ -27,7 +27,7 @@ public class Descanso {
     @param valor a quantidade de semanas
     */
     public void defineNumeroSemanas(int valor) {
-        this.NumeroDeSemanas = valor;
+        this.numeroDeSemanas = valor;
     }
 
     /*
@@ -36,12 +36,12 @@ public class Descanso {
     @return o status do aluno.
     */
     public String getStatusGeral() {
-        if (NumeroDeSemanas > 0) {
-            int aux = (this.HorasDeDescanso / this.NumeroDeSemanas);
+        if (numeroDeSemanas > 0) {
+            int aux = (this.horasDeDescanso / this.numeroDeSemanas);
             if (aux >= 26) {
-                this.StatusGeral = "descansado";
-            } else {this.StatusGeral = "cansado";}
-        } else {this.StatusGeral = "cansado";}
-    return this.StatusGeral;
+                this.statusGeral = "descansado";
+            } else {this.statusGeral = "cansado";}
+        } else {this.statusGeral = "cansado";}
+    return this.statusGeral;
     }
 }

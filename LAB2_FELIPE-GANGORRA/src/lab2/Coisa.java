@@ -4,9 +4,9 @@ public class Coisa {
    public static void main(String[] args) {
        descanso();
        System.out.println("-----");
-       /*registroOnline();
+       registroOnline();
        System.out.println("-----");
-       disciplina();
+       /*disciplina();
        System.out.println("-----");
        atividadesComplementares();*/
    }
@@ -23,7 +23,7 @@ public class Coisa {
        descanso.defineNumeroSemanas(1);
        System.out.println(descanso.getStatusGeral());
    }
-   /*private static void registroOnline() {
+   private static void registroOnline() {
        RegistroTempoOnline tempoLP2 = new RegistroTempoOnline("LP2", 30);
        tempoLP2.adicionaTempoOnline(10);
        System.out.println(tempoLP2.atingiuMetaTempoOnline());
@@ -36,7 +36,7 @@ public class Coisa {
        RegistroTempoOnline tempoP2 = new RegistroTempoOnline("P2");
        System.out.println(tempoP2.toString());
    }
-   private static void disciplina() {
+   /*private static void disciplina() {
        Disciplina prog2 = new Disciplina("PROGRAMACAO 2");
        prog2.cadastraHoras(4);
        prog2.cadastraNota(1, 5.0);
