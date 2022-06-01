@@ -52,8 +52,8 @@ import java.util.ArrayList;
     public String[] pegaAtividades() {
         String[] pegaAtividades = new String[100];
 
-        for (int elemento: totalEstagios);
-            pegaAtividades.add("Estágio " + (String[]elemento));
+        for (String[] elemento: totalEstagios);
+            pegaAtividades.add("Estágio " + elemento);
 
         for (String elemento: totalProjetos);
             pegaAtividades.add("Projetos " + elemento);

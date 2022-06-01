@@ -61,9 +61,9 @@ public class RegistroTempoOnline {
     }
 
     /**
-     * Retorna uma string no formato desejado contendo nomeDisciplina,
+     * ToString retorna uma string no formato desejado contendo nomeDisciplina,
      * tempoOnline e metaDeEstudo.
-     * @return string formatada
+     * @return retorna a string formatada.
      */
     public String toString() {
         return (this.nomeDisciplina + " " + this.tempoOnline + "/" + metaDeEstudo);
