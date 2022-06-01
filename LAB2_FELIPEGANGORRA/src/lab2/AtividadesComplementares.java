@@ -48,13 +48,27 @@ import java.util.ArrayList;
         return (int) contagem;
     }
 
+    //????
     public String[] pegaAtividades() {
         String[] pegaAtividades = new String[100];
 
-        
+        for (int elemento: totalEstagios);
+            pegaAtividades.add("Estágio " + (String[]elemento));
+
+        for (String elemento: totalProjetos);
+            pegaAtividades.add("Projetos " + elemento);
+
+        pegaAtividades.add("Cursos " + horasCurso);
+        pegaAtividades.add("Creditos_Estagio " + this.creditoEstagio);
+        pegaAtividades.add("Creditos_Projeto " + this.creditoProjeto);
+        pegaAtividades.add("Creditos_Curso " + this.creditoCurso);
+
+        return pegaAtividades;
     }
 
 
+
+    //calculadora
     public int calculadoraEstagio (int horas) {
         int credito = horas / 300 * 5;
         return credito;
