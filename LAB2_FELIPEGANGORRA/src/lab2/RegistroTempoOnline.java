@@ -1,16 +1,22 @@
 package lab2;
 /**
- * Representa o registro de tempo online, onde contém a informação sobre a
+ * Classe que representa o registro de tempo online, onde contém a informação sobre a
  * quantidade de horas em que o aluno tem dedicado a disciplina remota.
  * O aluno vai definir a disciplina e o tempo esperado.
  * @author Felipe Gangorra
  */
 public class RegistroTempoOnline {
-    //Nome da disciplina
+    /**
+     * Variável com o nome da disciplina em questão.
+     */
     private String nomeDisciplina;
-    //Tempo colocado na disciplina
+    /**
+     * Variável contendo o tempo de estudo dedicado a disciplina.
+     */
     private int tempoOnline;
-    //Meta de horas a ser batida
+    /**
+     * Variável contendo a meta de tempo que deve ser dedicado a disciplina.
+     */
     private int metaDeEstudo;
 
     /**
@@ -24,7 +30,7 @@ public class RegistroTempoOnline {
     }
 
     /**
-     * construtor pra criar um objeto contendo 
+     * Construtor com a função de criar um objeto contendo  
      * @param nomeDisciplina o nome da disciplina
      * @param tempoOnlineEsperado o tempo esperado
      */
@@ -35,7 +41,7 @@ public class RegistroTempoOnline {
 
     /**
      * Adicionando tempo as horas contabilizadas.
-     * @param tempo tempo que será somado
+     * @param tempo tempo que será somado ao total de horas.
      */
     public void adicionaTempoOnline(int tempo) {
         this.tempoOnline += tempo;

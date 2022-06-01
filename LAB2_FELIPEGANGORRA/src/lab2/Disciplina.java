@@ -1,41 +1,50 @@
 package lab2;
 import java.util.Arrays;
 /**
- * Registra as notas do aluno na respectiva disciplina, além das horas dedicadas
- * e se foi aprovado ou não na mesma.
+ * Classe responsável por registrar as notas do aluno em uma disciplina, além das horas dedicadas
+ * verificando se o aluno foi aprovado ou não.
  * @author Felipe Gangorra
  */
 
 public class Disciplina {
-    //Nome da disciplina
+    /**
+     * Variável contendo o nome da disciplina em questão.
+     */
     private String nomeDisciplina;
-    //Quantidade de horas dedicadas
+    /**
+     * Variável contendo a quantidade de horas dedicadas para a disciplina.
+     */
     private int horasEstudo;
-    //Média do aluno
+    /**
+     * Variável contendo a média das notas que o alunou tirou na disciplina.
+     */
     private double mediaDasNotas;
-    //Array contendo as 4 notas (padrão), inicializadas com 0.
+    /**
+     * Variável do tipo Array contendo as 4 notas do aluno(padrão de notas), inicializadas com 0 por padrão.
+     */
     private double[] notaDasDisciplinas = {0,0,0,0};
 
     /**
-     * Construtor recebe o nome da disciplina e inicia
-     * @param nomeDisciplina nome da disciplina
+     * Objeto que recebe o nome da disciplina e inicia.
+     * @param nomeDisciplina disciplina em analise.
      */
     public Disciplina(String nomeDisciplina){
         this.nomeDisciplina = nomeDisciplina;
     }
 
     /**
-     * Definição de horas dedicadas a disciplina
-     * @param horas tempo de estudo
+     * Objeto que definição de horas dedicadas a disciplina.
+     * @param horas tempo de estudo do aluno.
      */
     public void cadastraHoras(int horas){
         this.horasEstudo = horas;
     }
 
     /**
-     * Cadastro de notas da disciplina de acordo com o parametro passado
-     * @param nota posição no array
-     * @param valorNota valor da nota
+     * Cadastro de notas da disciplina de acordo com o parametro passado levando em consideração 
+     * a posição (nota) e o valor da mesma (valorNota).
+     * @param nota posição da nota no array.
+     * @param valorNota valor da nota de acordo com a posição.
      */
     public void cadastraNota(int nota, double valorNota){
         notaDasDisciplinas[nota-1] = valorNota;
@@ -43,8 +52,8 @@ public class Disciplina {
 
 
     /**
-     * Cálculo da média das 4 notas
-     * @return media
+     * Método que cálcula a média das 4 notas do aluno para verifição da aprovação.
+     * @return média das 4 notas.
      */
     public double mediaDasNotas(){
         double soma = 0;
@@ -56,8 +65,8 @@ public class Disciplina {
     }
 
     /**
-     * Método para verificar se o aluno foi aprovado de acordo com a média
-     * @return aprovado(true) ou reprovado(false)
+     * Método para verificar se o aluno foi aprovado de acordo com a média.
+     * @return retorna true caso o aluno seja aprovado e false se não.
      */
     public boolean aprovado(){
         if (mediaDasNotas() >= 7){
@@ -67,11 +76,10 @@ public class Disciplina {
         }
     }
 
-
     /**
-     * Formatação da string de saida com a disciplina, horas dedicadas de estudo,
+     * ToString para formatação da string de saida de acordo com o esperado, contendo: disciplina, horas dedicadas de estudo,
      * média das notas e as respectivas notas.
-     * @return string formatada
+     * @return retorna a string formatada.
      */
     public String toString() {
         return (this.nomeDisciplina + " " + this.horasEstudo + " " + mediaDasNotas() + " " + Arrays.toString(notaDasDisciplinas));

@@ -7,23 +7,29 @@ package lab2;
  */
 public class Descanso {
 
-    // Horas de descanso
+    /**
+     * Variável contendo as horas de descanso para verificação.
+     */
     private int horasDeDescanso;
-    // Quantidade de semanas
+    /**
+     * Variável contendo quantidade de semanas para verificação.
+     */
     private int numeroDeSemanas;
-    //Status do aluno
+    /**
+     * Variável contendo status do aluno para verificação.
+     */
     private String statusGeral;
 
     /**
-     * Recebe a quantidade de horas de descanso e armazena o dado.
-     * @param valor quantidade de horas de descanso
+     * Objeto que recebe a quantidade de horas de descanso e armazena o dado.
+     * @param valor quantidade de horas de descanso.
      */
     public void defineHorasDescanso(int valor) {
         this.horasDeDescanso = valor;
     }
 
     /**
-     * Recebe a quantidade de semanas e armazena o dado.
+     * Objeto que recebe a quantidade de semanas e armazena o dado.
      * @param valor a quantidade de semanas
      */
     public void defineNumeroSemanas(int valor) {
@@ -31,7 +37,7 @@ public class Descanso {
     }
 
     /**
-     * Verifica o status do aluno fazendo uma média de horas de descanso
+     * Método que verifica o status do aluno fazendo uma média de horas de descanso
      * com a quantidade de semana, mantendo 26 horas como minimo de descanso.
      * @return o status do aluno.
     */
