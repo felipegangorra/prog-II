@@ -23,23 +23,23 @@ import java.util.ArrayList;
     }
 
     public void adicionarEstagio(int horas) {
-        if (this.totalEstagios.size() < 9) {return;}    //não add no array, 9 é padrão
+        if (this.totalEstagios.size() > 9) {return;}    //não add no array, 9 é padrão
 
         this.totalEstagios.add(horas);
-        this.horasEstagio = horas;
+        this.horasEstagio += horas;
         this.creditoEstagio += calculadoraEstagio(horas);
     }
 
     public void adicionarProjeto(int meses) {
-        if (this.totalProjetos.size() < 16) {return;} //não add no array, 16 padrão
+        if (this.totalProjetos.size() > 16) {return;} //não add no array, 16 padrão
         
         this.totalProjetos.add(meses);
-        this.mesesProjeto = meses;
+        this.mesesProjeto += meses;
         this.creditoProjeto += calculadoraProjeto(meses);
     }
     
     public void adicionarCurso(double horas) {
-        this.horasCurso = horas;
+        this.horasCurso += horas;
         this.creditoCurso += calculadoraCurso(horas);
     }
 
@@ -71,7 +71,7 @@ import java.util.ArrayList;
         pegaAtividades[posAtividades++] = estagio;
         String projeto = "Creditos_Projeto " + this.creditoProjeto;
         pegaAtividades[posAtividades++] = projeto;
-        String cursoCred = "Creditos_Curso " + this.creditoCurso;
+        String cursoCred = "Creditos_Curso " + (int) this.creditoCurso;
         pegaAtividades[posAtividades++] = cursoCred;
 
         return pegaAtividades;
