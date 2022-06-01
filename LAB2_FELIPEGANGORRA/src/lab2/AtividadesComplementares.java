@@ -50,18 +50,29 @@ import java.util.ArrayList;
 
     //????
     public String[] pegaAtividades() {
-        String[] pegaAtividades = new String[100];
+        String[] pegaAtividades = new String[this.totalEstagios.size() + this.totalProjetos.size() + 4];
+        int posAtividades = 0;
 
-        for (String[] elemento: totalEstagios);
-            pegaAtividades.add("Estágio " + elemento);
+        for (int i = 0; i < totalEstagios.size() ; i++){
+            int elemento = totalEstagios.get(i);
+            String aux = "Estágio " + elemento;
+            pegaAtividades[posAtividades++] = aux;
+        }
 
-        for (String elemento: totalProjetos);
-            pegaAtividades.add("Projetos " + elemento);
+        for (int i = 0; i < totalProjetos.size() ; i++){
+            int elemento = totalProjetos.get(i);
+            String aux = "Projetos " + elemento;
+            pegaAtividades[posAtividades++] = aux;
+        }
 
-        pegaAtividades.add("Cursos " + horasCurso);
-        pegaAtividades.add("Creditos_Estagio " + this.creditoEstagio);
-        pegaAtividades.add("Creditos_Projeto " + this.creditoProjeto);
-        pegaAtividades.add("Creditos_Curso " + this.creditoCurso);
+        String cursoTempo = "Cursos " + this.horasCurso;
+        pegaAtividades[posAtividades++] = cursoTempo;
+        String estagio = "Creditos_Estagio " + this.creditoEstagio;
+        pegaAtividades[posAtividades++] = estagio;
+        String projeto = "Creditos_Projeto " + this.creditoProjeto;
+        pegaAtividades[posAtividades++] = projeto;
+        String cursoCred = "Creditos_Curso " + this.creditoCurso;
+        pegaAtividades[posAtividades++] = cursoCred;
 
         return pegaAtividades;
     }

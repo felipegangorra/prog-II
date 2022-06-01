@@ -8,7 +8,7 @@ public class Coisa {
        System.out.println("-----");
        disciplina();
        System.out.println("-----");
-       //atividadesComplementares();
+       atividadesComplementares();
    }
    public static void descanso() {
        Descanso descanso = new Descanso();
@@ -47,7 +47,7 @@ public class Coisa {
        System.out.println(prog2.aprovado());
        System.out.println(prog2.toString());
    }
-   /*private static void atividadesComplementares() {
+   private static void atividadesComplementares() {
        AtividadesComplementares minhasAtividades = new AtividadesComplementares();
        int horasEstagio = 350;
        int mesesProjeto = 6;
@@ -73,5 +73,5 @@ public class Coisa {
        }
        System.out.println(minhasAtividades.contaCreditos());
  
-   }*/
+   }
 }
