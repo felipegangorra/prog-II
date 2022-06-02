@@ -55,7 +55,7 @@ public class Disciplina {
      * Método que cálcula a média das 4 notas do aluno para verifição da aprovação.
      * @return média das 4 notas.
      */
-    public double mediaDasNotas(){
+    private double mediaDasNotas(){
         double soma = 0;
         for (double i:this.notaDasDisciplinas) {
             soma += i;

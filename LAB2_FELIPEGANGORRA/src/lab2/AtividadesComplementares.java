@@ -128,7 +128,7 @@ import java.util.ArrayList;
      * @param horas referente as horas dedicadas ao estágio em questão.
      * @return  retorna a quantidade de créditos obtidos.
      */
-    public int calculadoraEstagio (int horas) {
+    private int calculadoraEstagio (int horas) {
         int credito = horas / 300 * 5;
         return credito;
     }
@@ -138,7 +138,7 @@ import java.util.ArrayList;
      * @param meses referente ao tempo dedicado ao projeto em questão.
      * @return  retorna a quantidade de créditos obtidos.
      */
-    public int calculadoraProjeto (int meses) {
+    private int calculadoraProjeto (int meses) {
         int credito = meses / 3 * 2;
         return credito;
     }
@@ -148,7 +148,7 @@ import java.util.ArrayList;
      * @param horas referente ao tempo dedicado aos cursos.
      * @return retorna a quantidade de créditos obtidos.
      */
-    public double calculadoraCurso (double horas) {
+    private double calculadoraCurso (double horas) {
         double credito = horas / 30;
         return credito;
     }
