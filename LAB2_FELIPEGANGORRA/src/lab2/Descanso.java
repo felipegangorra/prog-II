@@ -1,4 +1,5 @@
 package lab2;
+
 /**
  * Representação do controle de descanso, onde o aluno define as horas de descanso,
  * quantidade de semanas e tem acesso ao status geral. O aluno deve ter 26 horas por
@@ -21,7 +22,7 @@ public class Descanso {
     private String statusGeral;
 
     /**
-     * Objeto que recebe a quantidade de horas de descanso e armazena o dado.
+     * Método que recebe a quantidade de horas de descanso e armazena o dado.
      * @param valor quantidade de horas de descanso.
      */
     public void defineHorasDescanso(int valor) {
@@ -29,7 +30,7 @@ public class Descanso {
     }
 
     /**
-     * Objeto que recebe a quantidade de semanas e armazena o dado.
+     * Método que recebe a quantidade de semanas e armazena o dado.
      * @param valor a quantidade de semanas
      */
     public void defineNumeroSemanas(int valor) {

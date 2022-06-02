@@ -1,5 +1,6 @@
 package lab2;
 import java.util.Arrays;
+
 /**
  * Classe responsável por registrar as notas do aluno em uma disciplina, além das horas dedicadas
  * verificando se o aluno foi aprovado ou não.
@@ -25,7 +26,7 @@ public class Disciplina {
     private double[] notaDasDisciplinas = {0,0,0,0};
 
     /**
-     * Objeto que recebe o nome da disciplina e inicia.
+     * Construtor que recebe o nome da disciplina e inicia.
      * @param nomeDisciplina disciplina em analise.
      */
     public Disciplina(String nomeDisciplina){
@@ -33,7 +34,7 @@ public class Disciplina {
     }
 
     /**
-     * Objeto que definição de horas dedicadas a disciplina.
+     * Método de definição de horas dedicadas a disciplina.
      * @param horas tempo de estudo do aluno.
      */
     public void cadastraHoras(int horas){
@@ -41,7 +42,7 @@ public class Disciplina {
     }
 
     /**
-     * Cadastro de notas da disciplina de acordo com o parametro passado levando em consideração 
+     * Método que cadastra as notas da disciplina de acordo com o parametro passado levando em consideração 
      * a posição (nota) e o valor da mesma (valorNota).
      * @param nota posição da nota no array.
      * @param valorNota valor da nota de acordo com a posição.
@@ -49,7 +50,6 @@ public class Disciplina {
     public void cadastraNota(int nota, double valorNota){
         notaDasDisciplinas[nota-1] = valorNota;
     }
-
 
     /**
      * Método que cálcula a média das 4 notas do aluno para verifição da aprovação.

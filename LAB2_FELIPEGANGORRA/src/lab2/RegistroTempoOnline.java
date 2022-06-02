@@ -1,4 +1,5 @@
 package lab2;
+
 /**
  * Classe que representa o registro de tempo online, onde contém a informação sobre a
  * quantidade de horas em que o aluno tem dedicado a disciplina remota.
@@ -6,6 +7,7 @@ package lab2;
  * @author Felipe Gangorra
  */
 public class RegistroTempoOnline {
+    
     /**
      * Variável com o nome da disciplina em questão.
      */
@@ -48,7 +50,7 @@ public class RegistroTempoOnline {
     }
 
     /**
-     * Verificando se a quantidade de horas dedicadas é maior ou
+     * Método para verificar se a quantidade de horas dedicadas é maior ou
      * igual ao tempo esperado, se for retorna true e false se não.
      * @return valor de acordo com a a meta 
      */
