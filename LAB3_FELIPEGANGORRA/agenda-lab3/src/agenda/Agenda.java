@@ -44,7 +44,7 @@ public class Agenda {
 	 * @param telefone Telefone do contato.
 	 */
 	public void cadastraContato(int posicao, String nome, String sobrenome, String telefone) {
-		this.contatos[posicao] = nome;
+		this.contatos[posicao] = (nome + ", " + sobrenome + ", " + telefone);
 	}
 
 }
