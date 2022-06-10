@@ -15,7 +15,7 @@ public class MainAgenda {
 	public static void main(String[] args) {
 		Agenda agenda = new Agenda();
 
-		System.out.println("Carregando agenda inicial");
+		System.out.println("Carregando agenda inicial...l");
 		try {
 			/*
 			 * Essa é a maneira de lidar com possíveis erros por falta do arquivo. 
@@ -91,7 +91,7 @@ public class MainAgenda {
 		for (int i = 0; i < contatos.length; i++) {
 			if (contatos[i] != null) {
 				System.out.println(formataContato(i, contatos[i]));
-			}
+			} 
 		}
 	}
 
