@@ -15,7 +15,7 @@ public class MainAgenda {
 	public static void main(String[] args) {
 		Agenda agenda = new Agenda();
 
-		System.out.println("Carregando agenda inicial...l");
+		System.out.println("Carregando agenda inicial");
 		try {
 			/*
 			 * Essa é a maneira de lidar com possíveis erros por falta do arquivo. 
@@ -43,7 +43,7 @@ public class MainAgenda {
 	 * @return O comando escolhido.
 	 */
 	private static String menu(Scanner scanner) {
-		System.out.println(
+		System.out.print(
 				"\n---\nMENU\n" + 
 						"(C)adastrar Contato\n" + 
 						"(L)istar Contatos\n" + 
@@ -76,7 +76,7 @@ public class MainAgenda {
 			sai();
 			break;
 		default:
-			System.out.println("Opção inválida!");
+			System.out.println("OPÇÃO INVÁLIDA!");
 		}
 	}
 
@@ -126,15 +126,26 @@ public class MainAgenda {
 	 * @param scanner Scanner para pedir informações do contato.
 	 */
 	private static void cadastraContato(Agenda agenda, Scanner scanner) {
-		System.out.print("\nPosição na agenda> ");
+		System.out.print("\nPosição> ");
 		int posicao = scanner.nextInt();
-		System.out.print("\nNome> ");
+
+		if (posicao <= 0 || posicao > 100) {
+			System.out.println("\nPOSIÇÃO INVÁLIDA!");
+			return;
+		}
+
+		System.out.print("Nome> ");
 		String nome = scanner.next();
-		System.out.print("\nSobrenome> ");
+
+		System.out.print("Sobrenome> ");
 		String sobrenome = scanner.next();
-		System.out.print("\nTelefone> ");
-		String telefone = scanner.next();
+		
+		scanner.nextLine();	//limita o nextLine
+		System.out.print("Telefone> ");
+		String telefone = scanner.nextLine();
+
 		agenda.cadastraContato(posicao, nome, sobrenome, telefone);
+		System.out.println("\nCADASTRO REALIZADO!");
 	}
 
 	/**
