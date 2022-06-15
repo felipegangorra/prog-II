@@ -135,17 +135,21 @@ public class MainAgenda {
 		}
 
 		System.out.print("Nome> ");
-		String nome = scanner.next();
+		String nome = scanner.nextLine();
+		scanner.nextLine();	//limita o nextLin
+		if (nome == null || nome.equals("")) {System.out.println("\n CONTATO INVALIDO!"); return;}
 
 		System.out.print("Sobrenome> ");
-		String sobrenome = scanner.next();
+		String sobrenome = scanner.nextLine();
 		
 		scanner.nextLine();	//limita o nextLine
+		
 		System.out.print("Telefone> ");
 		String telefone = scanner.nextLine();
+		if (telefone == null || telefone.equals("")) {System.out.println("\n CONTATO INVALIDO!"); return;}
 
 		agenda.cadastraContato(posicao, nome, sobrenome, telefone);
-		System.out.println("\nCADASTRO REALIZADO!");
+		System.out.println("CADASTRO REALIZADO!");
 	}
 
 	/**
