@@ -51,7 +51,7 @@ public class MainAgenda {
 						"(S)air\n" + 
 						"\n" + 
 						"Opção> ");
-		return scanner.next().toUpperCase();
+		return scanner.nextLine().toUpperCase();
 	}
 
 	/**
@@ -102,10 +102,16 @@ public class MainAgenda {
 	 * @param scanner Scanner para capturar qual contato.
 	 */
 	private static void exibeContato(Agenda agenda, Scanner scanner) {
-		System.out.print("\nQual contato> ");
-		int posicao = scanner.nextInt();
+		System.out.print("Contato> ");
+		int posicao = Integer.parseInt(scanner.nextLine());
 		Contato contato = agenda.getContato(posicao);
-		System.out.println("Dados do contato:\n" + contato);
+
+		if (contato == null) {
+			System.out.println("\nPOSIÇÃO INVÁLIDA!");
+			return;
+		}
+
+		System.out.println("\n" + contato.toString());
 	}
 
 	/**
@@ -127,7 +133,7 @@ public class MainAgenda {
 	 */
 	private static void cadastraContato(Agenda agenda, Scanner scanner) {
 		System.out.print("\nPosição> ");
-		int posicao = scanner.nextInt();
+		int posicao = Integer.parseInt(scanner.nextLine());
 
 		if (posicao <= 0 || posicao > 100) {
 			System.out.println("\nPOSIÇÃO INVÁLIDA!");
@@ -136,20 +142,32 @@ public class MainAgenda {
 
 		System.out.print("Nome> ");
 		String nome = scanner.nextLine();
-		scanner.nextLine();	//limita o nextLin
-		if (nome == null || nome.equals("")) {System.out.println("\n CONTATO INVALIDO!"); return;}
+		if (nome == null || nome.equals("")) {System.out.println("\nCONTATO INVALIDO!"); return;}
 
 		System.out.print("Sobrenome> ");
 		String sobrenome = scanner.nextLine();
+
+		//verificando se já existe
+		Contato[] contatos = agenda.getContatos();	//chamando clone de contatos
+		for (int i = 0; i < contatos.length; i++) {
+			if(contatos[i] != null) {
+				String nomeContato = contatos[i].getNome();
+				String sobrenomeContato = contatos[i].getSobrenome();
+
+				if (nome.equals(nomeContato) && sobrenome.equals(sobrenomeContato)) {
+					System.out.println("\nCONTATO JÁ CADASTRADO!");
+					return;
+				}
+			}
+		}
 		
-		scanner.nextLine();	//limita o nextLine
 		
 		System.out.print("Telefone> ");
 		String telefone = scanner.nextLine();
-		if (telefone == null || telefone.equals("")) {System.out.println("\n CONTATO INVALIDO!"); return;}
+		if (telefone == null || telefone.equals("")) {System.out.println("\nCONTATO INVALIDO!"); return;}
 
 		agenda.cadastraContato(posicao, nome, sobrenome, telefone);
-		System.out.println("CADASTRO REALIZADO!");
+		System.out.println("\nCADASTRO REALIZADO!");
 	}
 
 	/**
