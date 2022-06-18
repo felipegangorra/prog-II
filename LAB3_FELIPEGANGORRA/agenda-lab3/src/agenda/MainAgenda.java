@@ -33,7 +33,6 @@ public class MainAgenda {
 			escolha = menu(scanner);
 			comando(escolha, agenda, scanner);
 		}
-
 	}
 
 	/**
@@ -121,7 +120,7 @@ public class MainAgenda {
 
 		//se estiver nos favoritos
 		if (agenda.ehFavorito(contato)) {
-			System.out.print("❤️ " + contato.toString());
+			System.out.print("\n❤️ " + contato.toString());
 		} else {
 			System.out.println("\n" + contato.toString());
 		}
@@ -143,6 +142,11 @@ public class MainAgenda {
 		int posicaoContato = Integer.parseInt(scanner.nextLine());		//posicao do contato
 		System.out.print("Posição> ");
 		int posicaoFavorito = Integer.parseInt(scanner.nextLine());	//posicao de favorito
+
+		if (agenda.verificarFavorito(posicaoContato)) {
+			System.out.println("ERRO! CONTATO JÁ FAVORITADO!");
+			return;
+		}
 
 		agenda.cadastraFavorito(posicaoContato, posicaoFavorito);
 		System.out.println("CONTATO FAVORITADO NA POSIÇÃO " + posicaoFavorito + "!");
@@ -181,21 +185,8 @@ public class MainAgenda {
 		System.out.print("Sobrenome> ");
 		String sobrenome = scanner.nextLine();
 
-		//verificando se já existe
-		Contato[] contatos = agenda.getContatos();	//chamando clone de contatos
-		for (int i = 0; i < contatos.length; i++) {
-			if(contatos[i] != null) {
-				String nomeContato = contatos[i].getNome();
-				String sobrenomeContato = contatos[i].getSobrenome();
+		if(agenda.verificarContato(nome, sobrenome)) {return;}	//verificando se já existe
 
-				if (nome.equals(nomeContato) && sobrenome.equals(sobrenomeContato)) {
-					System.out.println("\nCONTATO JÁ CADASTRADO!");
-					return;
-				}
-			}
-		}
-		
-		
 		System.out.print("Telefone> ");
 		String telefone = scanner.nextLine();
 		if (telefone == null || telefone.equals("")) {System.out.println("\nCONTATO INVALIDO!"); return;}

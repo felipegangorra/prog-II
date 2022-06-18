@@ -62,8 +62,9 @@ public class Agenda {
 		this.favoritos[posicaoFavorito] = this.contatos[posicaoContato];
 	}
 
+	//verificar se o contato é favorito
 	public boolean ehFavorito(Contato contato) {
-		for (Contato favorito : favoritos) {
+		for (Contato favorito : this.favoritos) {
 			if (contato.equals(favorito)) {
 				return true;
 			}
@@ -71,4 +72,30 @@ public class Agenda {
 		return false;
 	}
 
+	//verificar se já é favorito
+	public boolean verificarFavorito(int posicao) {
+		for (int i = 0; i < favoritos.length; i++) {
+			if (contatos[posicao].equals(favoritos[i])) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	//verificar se contato já existe
+	public boolean verificarContato(String nome, String sobrenome) {
+		Contato[] contatos = getContatos();	//chamando clone de contatos
+		for (int i = 0; i < contatos.length; i++) {
+			if(contatos[i] != null) {
+				String nomeContato = contatos[i].getNome();
+				String sobrenomeContato = contatos[i].getSobrenome();
+
+				if (nome.equals(nomeContato) && sobrenome.equals(sobrenomeContato)) {
+					System.out.println("\nCONTATO JÁ CADASTRADO!");
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

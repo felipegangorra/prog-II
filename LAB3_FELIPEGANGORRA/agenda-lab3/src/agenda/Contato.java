@@ -21,7 +21,6 @@ public class Contato {
         return this.sobrenome;
     }
 
-
     //nome completo e telefone
     public String getUsuarioCompleto() {
         return this.nome + " " + this.sobrenome;
