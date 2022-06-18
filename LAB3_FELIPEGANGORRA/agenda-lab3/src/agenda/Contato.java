@@ -5,6 +5,7 @@ public class Contato {
     private String sobrenome;
     private String telefone;
 
+
     //construtor
     public Contato(String nome, String sobrenome, String telefone) {
         this.nome = nome;
@@ -19,6 +20,7 @@ public class Contato {
     public String getSobrenome() {
         return this.sobrenome;
     }
+
 
     //nome completo e telefone
     public String getUsuarioCompleto() {

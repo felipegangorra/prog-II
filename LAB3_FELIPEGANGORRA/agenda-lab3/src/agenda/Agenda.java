@@ -9,14 +9,17 @@ package agenda;
 public class Agenda {
 	
 	private static final int TAMANHO_AGENDA = 100;
+	private static final int TAMANHO_FAVORITOS = 10;
 	
 	private Contato[] contatos;
+	private Contato[] favoritos;
 
 	/**
 	 * Cria uma agenda.
 	 */
 	public Agenda() {
 		this.contatos = new Contato[TAMANHO_AGENDA];
+		this.favoritos = new Contato[TAMANHO_FAVORITOS];
 
 	}
 	
@@ -26,6 +29,11 @@ public class Agenda {
 	 */
 	public Contato[] getContatos() {
 		return this.contatos.clone();
+	}
+
+	//lista de favoritos clone
+	public Contato[] getFavoritos() {
+		return this.favoritos.clone();
 	}
 
 	/**
@@ -47,6 +55,20 @@ public class Agenda {
 	public void cadastraContato(int posicao, String nome, String sobrenome, String telefone) {
 		Contato contatoAtual = new Contato(nome, sobrenome, telefone);
 		this.contatos[posicao] = contatoAtual;
+	}
+
+	//cadastra favorito
+	public void cadastraFavorito(int posicaoContato, int posicaoFavorito) {
+		this.favoritos[posicaoFavorito] = this.contatos[posicaoContato];
+	}
+
+	public boolean ehFavorito(Contato contato) {
+		for (Contato favorito : favoritos) {
+			if (contato.equals(favorito)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }
