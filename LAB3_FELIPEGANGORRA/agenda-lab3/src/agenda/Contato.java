@@ -4,6 +4,7 @@ public class Contato {
     private String nome;
     private String sobrenome;
     private String telefone;
+    private String tag;
 
 
     //construtor
@@ -11,6 +12,10 @@ public class Contato {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.telefone = telefone;
+    }
+
+    public Contato(String tag) {
+        this.tag = tag;
     }
 
     public String getNome() {

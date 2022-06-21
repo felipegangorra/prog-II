@@ -49,6 +49,7 @@ public class MainAgenda {
 						"(E)xibir Contato\n" + 
 						"(F)avorito\n" + 
 						"(A)dicionar Favorito\n" + 
+						"(T)ags\n" + 
 						"(S)air\n" + 
 						"\n" + 
 						"Opção> ");
@@ -79,12 +80,47 @@ public class MainAgenda {
 		case "A":
 			adicionarFavorito(agenda, scanner);
 			break;
+		case "T":
+			adicionarTags(agenda, scanner);
+			break;
 		case "S":
 			sai();
 			break;
 		default:
 			System.out.println("OPÇÃO INVÁLIDA!");
 		}
+	}
+
+	/**
+	 * Cadastra um contato na agenda. 
+	 * 
+	 * @param agenda A agenda.
+	 * @param scanner Scanner para pedir informações do contato.
+	 */
+	private static void cadastraContato(Agenda agenda, Scanner scanner) {
+		System.out.print("\nPosição> ");
+		int posicao = Integer.parseInt(scanner.nextLine());
+
+		if (posicao <= 0 || posicao > 100) {
+			System.out.println("\nPOSIÇÃO INVÁLIDA!");
+			return;
+		}
+
+		System.out.print("Nome> ");
+		String nome = scanner.nextLine();
+		if (nome == null || nome.equals("")) {System.out.println("\nCONTATO INVALIDO!"); return;}
+
+		System.out.print("Sobrenome> ");
+		String sobrenome = scanner.nextLine();
+
+		if(agenda.verificarContato(nome, sobrenome)) {return;}	//verificando se já existe
+
+		System.out.print("Telefone> ");
+		String telefone = scanner.nextLine();
+		if (telefone == null || telefone.equals("")) {System.out.println("\nCONTATO INVALIDO!"); return;}
+
+		agenda.cadastraContato(posicao, nome, sobrenome, telefone);
+		System.out.println("\nCADASTRO REALIZADO!");
 	}
 
 	/**
@@ -140,16 +176,42 @@ public class MainAgenda {
 	private static void adicionarFavorito(Agenda agenda, Scanner scanner) {
 		System.out.print("Contato> ");
 		int posicaoContato = Integer.parseInt(scanner.nextLine());		//posicao do contato
+		
 		System.out.print("Posição> ");
 		int posicaoFavorito = Integer.parseInt(scanner.nextLine());	//posicao de favorito
 
 		if (agenda.verificarFavorito(posicaoContato)) {
-			System.out.println("ERRO! CONTATO JÁ FAVORITADO!");
+			System.out.println("\nERRO! CONTATO JÁ FAVORITADO!");
 			return;
 		}
 
 		agenda.cadastraFavorito(posicaoContato, posicaoFavorito);
 		System.out.println("CONTATO FAVORITADO NA POSIÇÃO " + posicaoFavorito + "!");
+	}
+
+	//adicionar tags
+	private static void adicionarTags(Agenda agenda, Scanner scanner) {
+		System.out.print("Contato(s)> ");
+		int posicaoContato = Integer.parseInt(scanner.nextLine());
+
+		System.out.print("Tag> ");
+		String mensagemTag = scanner.nextLine();
+		
+		System.out.print("Posicao tag> ");
+		int posicaoTag = Integer.parseInt(scanner.nextLine());
+
+		//cadastra tag
+		agenda.cadastraTags(posicaoTag, mensagemTag);
+		//associar tag ao contato
+		
+	}
+
+	/**
+	 * Sai da aplicação.
+	 */
+	private static void sai() {
+		System.out.println("\nVlw flw o/");
+		System.exit(0);
 	}
 
 	/**
@@ -161,46 +223,6 @@ public class MainAgenda {
 	 */
 	private static String formataContato(int posicao, Contato contato) {
 		return posicao + " - " + contato.getUsuarioCompleto();
-	}
-
-	/**
-	 * Cadastra um contato na agenda. 
-	 * 
-	 * @param agenda A agenda.
-	 * @param scanner Scanner para pedir informações do contato.
-	 */
-	private static void cadastraContato(Agenda agenda, Scanner scanner) {
-		System.out.print("\nPosição> ");
-		int posicao = Integer.parseInt(scanner.nextLine());
-
-		if (posicao <= 0 || posicao > 100) {
-			System.out.println("\nPOSIÇÃO INVÁLIDA!");
-			return;
-		}
-
-		System.out.print("Nome> ");
-		String nome = scanner.nextLine();
-		if (nome == null || nome.equals("")) {System.out.println("\nCONTATO INVALIDO!"); return;}
-
-		System.out.print("Sobrenome> ");
-		String sobrenome = scanner.nextLine();
-
-		if(agenda.verificarContato(nome, sobrenome)) {return;}	//verificando se já existe
-
-		System.out.print("Telefone> ");
-		String telefone = scanner.nextLine();
-		if (telefone == null || telefone.equals("")) {System.out.println("\nCONTATO INVALIDO!"); return;}
-
-		agenda.cadastraContato(posicao, nome, sobrenome, telefone);
-		System.out.println("\nCADASTRO REALIZADO!");
-	}
-
-	/**
-	 * Sai da aplicação.
-	 */
-	private static void sai() {
-		System.out.println("\nVlw flw o/");
-		System.exit(0);
 	}
 
 	/**

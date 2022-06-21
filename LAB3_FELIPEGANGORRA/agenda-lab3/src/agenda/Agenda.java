@@ -10,9 +10,11 @@ public class Agenda {
 	
 	private static final int TAMANHO_AGENDA = 100;
 	private static final int TAMANHO_FAVORITOS = 10;
+	private static final int TAMANHO_TAGS = 5;
 	
 	private Contato[] contatos;
 	private Contato[] favoritos;
+	private Contato[] tags;
 
 	/**
 	 * Cria uma agenda.
@@ -20,6 +22,7 @@ public class Agenda {
 	public Agenda() {
 		this.contatos = new Contato[TAMANHO_AGENDA];
 		this.favoritos = new Contato[TAMANHO_FAVORITOS];
+		this.tags = new Contato[TAMANHO_TAGS];
 
 	}
 	
@@ -62,7 +65,13 @@ public class Agenda {
 		this.favoritos[posicaoFavorito] = this.contatos[posicaoContato];
 	}
 
-	//verificar se o contato é favorito
+	//cadastra tags					//ISSO TÁ ERRADO BOY
+	public void cadastraTags(int posicaoTag, String tag) {
+		Contato addTag = new Contato(tag);
+		this.tags[posicaoTag] = addTag;
+	}
+
+	//verificar se o contato é favorito para add coração
 	public boolean ehFavorito(Contato contato) {
 		for (Contato favorito : this.favoritos) {
 			if (contato.equals(favorito)) {
@@ -72,7 +81,7 @@ public class Agenda {
 		return false;
 	}
 
-	//verificar se já é favorito
+	//verificar o favorito é repetido
 	public boolean verificarFavorito(int posicao) {
 		for (int i = 0; i < favoritos.length; i++) {
 			if (contatos[posicao].equals(favoritos[i])) {
