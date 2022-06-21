@@ -4,7 +4,7 @@ public class Contato {
     private String nome;
     private String sobrenome;
     private String telefone;
-    private String tag;
+    private String [] tags;
 
 
     //construtor
@@ -12,10 +12,7 @@ public class Contato {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.telefone = telefone;
-    }
-
-    public Contato(String tag) {
-        this.tag = tag;
+        tags = new String [5];
     }
 
     public String getNome() {
@@ -36,5 +33,10 @@ public class Contato {
     @Override
     public String toString() {
         return this.nome + " " + this.sobrenome + "\n" + this.telefone;
+    }
+    
+    //adicionando tag
+    public void adicionarTag(int posicaoTag, String tag) {
+        this.tags[posicaoTag] = tag;
     }
 }

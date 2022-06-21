@@ -101,7 +101,7 @@ public class MainAgenda {
 		System.out.print("\nPosição> ");
 		int posicao = Integer.parseInt(scanner.nextLine());
 
-		if (posicao <= 0 || posicao > 100) {
+		if (posicao <= 0 || posicao >= 100) {
 			System.out.println("\nPOSIÇÃO INVÁLIDA!");
 			return;
 		}
@@ -192,7 +192,7 @@ public class MainAgenda {
 	//adicionar tags
 	private static void adicionarTags(Agenda agenda, Scanner scanner) {
 		System.out.print("Contato(s)> ");
-		int posicaoContato = Integer.parseInt(scanner.nextLine());
+		String posicaoContato = scanner.nextLine();
 
 		System.out.print("Tag> ");
 		String mensagemTag = scanner.nextLine();
@@ -201,9 +201,11 @@ public class MainAgenda {
 		int posicaoTag = Integer.parseInt(scanner.nextLine());
 
 		//cadastra tag
-		agenda.cadastraTags(posicaoTag, mensagemTag);
-		//associar tag ao contato
-		
+		String [] listaContatos = posicaoContato.split(" ");
+		for (int i = 0; i < listaContatos.length; i++) {
+			int posicao = Integer.parseInt(listaContatos[i]);
+			agenda.cadastraTags(posicao, posicaoTag, mensagemTag);
+		}
 	}
 
 	/**
