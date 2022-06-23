@@ -50,6 +50,7 @@ public class MainAgenda {
 						"(F)avorito\n" + 
 						"(A)dicionar Favorito\n" + 
 						"(T)ags\n" + 
+						"(R)emover Contato\n" +
 						"(S)air\n" + 
 						"\n" + 
 						"Opção> ");
@@ -82,6 +83,9 @@ public class MainAgenda {
 			break;
 		case "T":
 			adicionarTags(agenda, scanner);
+			break;
+		case "R":
+			removerContato(agenda, scanner);
 			break;
 		case "S":
 			sai();
@@ -213,6 +217,18 @@ public class MainAgenda {
 			int posicao = Integer.parseInt(listaContatos[i]);
 			agenda.cadastraTags(posicao, posicaoTag, mensagemTag);
 		}
+	}
+
+	//remover contato
+	private static void removerContato(Agenda agenda, Scanner scanner) {
+		System.out.print("Contato> ");
+		int posicaoContato = Integer.parseInt(scanner.nextLine());
+
+		if (agenda.verificarFavorito(posicaoContato)) {
+			agenda.removerFavorito(posicaoContato);
+		}
+		
+		agenda.remover(posicaoContato);
 	}
 
 	/**

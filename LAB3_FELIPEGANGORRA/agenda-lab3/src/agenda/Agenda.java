@@ -102,4 +102,27 @@ public class Agenda {
 		}
 		return false;
 	}
+
+	//metodo para remover contato
+	public void remover(int posicao) {
+		//remover contatos
+		for (int i = 0; i < contatos.length; i++) {
+			if(i == posicao) {
+				if(contatos[i] == null) {
+					System.out.println("POSIÇÃO INVÁLIDA!");
+				}
+				contatos[i] = null;
+			}
+			
+		}
+	}	
+
+	public void removerFavorito(int posicao) {
+		//remover favoritos
+		for (int i = 0; i < favoritos.length; i++) {
+			if(contatos[posicao].equals(favoritos[i])) {
+				favoritos[i] = null;
+			}
+		}
+	}
 }
