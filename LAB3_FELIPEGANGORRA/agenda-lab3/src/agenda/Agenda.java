@@ -61,7 +61,7 @@ public class Agenda {
 		this.favoritos[posicaoFavorito] = this.contatos[posicaoContato];
 	}
 
-	//cadastra tags					//ISSO TÁ ERRADO BOY
+	//cadastra tags
 	public void cadastraTags(int posicaoContato, int posicaoTag, String tag) {
 		this.contatos[posicaoContato].adicionarTag(posicaoTag, tag);
 	}

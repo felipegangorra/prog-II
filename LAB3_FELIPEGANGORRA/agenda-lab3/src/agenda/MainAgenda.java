@@ -160,6 +160,13 @@ public class MainAgenda {
 		} else {
 			System.out.println("\n" + contato.toString());
 		}
+
+		String[] tags =  contato.getTags();
+		for (int i = 0; i < tags.length; i++) {
+			if(tags[i] != null) {
+				System.out.print(tags[i] + " ");
+			}
+		}
 	}
 
 	//lista favoritos

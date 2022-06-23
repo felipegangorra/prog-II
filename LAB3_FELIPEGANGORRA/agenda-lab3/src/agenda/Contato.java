@@ -28,6 +28,11 @@ public class Contato {
         return this.nome + " " + this.sobrenome;
     }
 
+    //copia do array tags
+    public String[] getTags() {
+        return this.tags.clone();
+    }
+
     //reescrever um metodo padrão do java (override)
     //uma representação escrita do objeto (toString)
     @Override
@@ -39,4 +44,5 @@ public class Contato {
     public void adicionarTag(int posicaoTag, String tag) {
         this.tags[posicaoTag] = tag;
     }
+    
 }

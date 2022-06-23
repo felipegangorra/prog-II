@@ -18,7 +18,6 @@ public class LeitorDeAgenda {
 	private static final int COLUNA_SOBRENOME = 2;
 	private static final int COLUNA_TELEFONE = 3;
 
-
 	/**
 	 * Lê contatos de um arquivo CSV e os coloca em uma agenda.
 	 * @param arquivoContatos Caminho para arquivo contendo contatos.
@@ -45,7 +44,6 @@ public class LeitorDeAgenda {
 		
 		return carregados;
 	}
-
 	
 	/**
 	 * Coloca na agenda os dados de uma linha do arquivo de agenda inicial. 
