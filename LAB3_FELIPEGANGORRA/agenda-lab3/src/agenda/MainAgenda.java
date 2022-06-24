@@ -5,9 +5,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Interface com menus texto para manipular uma agenda de contatos.
+ * Classe main, interface com menus texto para manipular uma agenda de contatos.
  * 
  * @author nazarenoandrade
+ * @author Felipe Gangorra.
  *
  */
 public class MainAgenda {
@@ -96,9 +97,10 @@ public class MainAgenda {
 	}
 
 	/**
-	 * Cadastra um contato na agenda. 
+	 * Método para cadastrar um contato na agenda. Verifica se a posição do contato e os parametros são validos,
+	 * além de verificar se já existe na lista de contatos.  
 	 * 
-	 * @param agenda A agenda.
+	 * @param agenda A agenda de contatos.
 	 * @param scanner Scanner para pedir informações do contato.
 	 */
 	private static void cadastraContato(Agenda agenda, Scanner scanner) {
@@ -128,7 +130,7 @@ public class MainAgenda {
 	}
 
 	/**
-	 * Imprime lista de contatos da agenda.
+	 * Método para imprimir lista de contatos da agenda.
 	 * 
 	 * @param agenda A agenda sendo manipulada.
 	 */
@@ -143,7 +145,8 @@ public class MainAgenda {
 	}
 
 	/**
-	 * Imprime os detalhes de um dos contatos da agenda. 
+	 * Método para imprimir os detalhes de um dos contatos da agenda, passando o esperado caso seja favorito
+	 * e possua tags. 
 	 * 
 	 * @param agenda A agenda.
 	 * @param scanner Scanner para capturar qual contato.
@@ -165,6 +168,7 @@ public class MainAgenda {
 			System.out.println("\n" + contato.toString());
 		}
 
+		//se possuir tags
 		String[] tags =  contato.getTags();
 		for (int i = 0; i < tags.length; i++) {
 			if(tags[i] != null) {
@@ -173,7 +177,10 @@ public class MainAgenda {
 		}
 	}
 
-	//lista favoritos
+	/**
+	 * Método para listar favoritos formatados.
+	 * @param agenda A agenda.
+	 */
 	private static void listaFavoritos(Agenda agenda) {
 		Contato[] favoritos = agenda.getFavoritos();
 		for (int i = 0; i < favoritos.length; i++) {
@@ -183,10 +190,14 @@ public class MainAgenda {
 		}
 	}
 
-	//add favoritos
+	/**
+	 * Método para adicionar um contato em favoritos.
+	 * @param agenda A agenda.
+	 * @param scanner Scanner para receber informações do contato.
+	 */
 	private static void adicionarFavorito(Agenda agenda, Scanner scanner) {
 		System.out.print("Contato> ");
-		int posicaoContato = Integer.parseInt(scanner.nextLine());		//posicao do contato
+		int posicaoContato = Integer.parseInt(scanner.nextLine()); //posicao do contato
 		
 		System.out.print("Posição> ");
 		int posicaoFavorito = Integer.parseInt(scanner.nextLine());	//posicao de favorito
@@ -200,7 +211,11 @@ public class MainAgenda {
 		System.out.println("CONTATO FAVORITADO NA POSIÇÃO " + posicaoFavorito + "!");
 	}
 
-	//adicionar tags
+	/**
+	 * Método para adicionar uma tag ao contato(s).
+	 * @param agenda A agenda.
+	 * @param scanner Scanner para receber informações do contato e tag.
+	 */
 	private static void adicionarTags(Agenda agenda, Scanner scanner) {
 		System.out.print("Contato(s)> ");
 		String posicaoContato = scanner.nextLine();
@@ -219,11 +234,16 @@ public class MainAgenda {
 		}
 	}
 
-	//remover contato
+	/**
+	 * Método para remover um contato da lista de contatos.
+	 * @param agenda A agenda.
+	 * @param scanner Scanner pare receber as informações do contato.
+	 */
 	private static void removerContato(Agenda agenda, Scanner scanner) {
 		System.out.print("Contato> ");
 		int posicaoContato = Integer.parseInt(scanner.nextLine());
 
+		//remover de favoritos, se for.
 		if (agenda.verificarFavorito(posicaoContato)) {
 			agenda.removerFavorito(posicaoContato);
 		}
@@ -232,7 +252,7 @@ public class MainAgenda {
 	}
 
 	/**
-	 * Sai da aplicação.
+	 * Método para sair da aplicação.
 	 */
 	private static void sai() {
 		System.out.println("\nVlw flw o/");
@@ -240,7 +260,7 @@ public class MainAgenda {
 	}
 
 	/**
-	 * Formata um contato para impressão na interface. 
+	 * Método para formatar um contato para impressão na interface. 
 	 * 
 	 * @param posicao A posição do contato (que é exibida)/
 	 * @param contato O contato a ser impresso.
@@ -251,7 +271,7 @@ public class MainAgenda {
 	}
 
 	/**
-	 * Lê uma agenda de um arquivo csv. 
+	 * Método para lêr uma agenda de um arquivo csv. 
 	 * 
 	 * @param arquivoContatos O caminho para o arquivo.
 	 * @param agenda A agenda que deve ser populada com os dados. 
