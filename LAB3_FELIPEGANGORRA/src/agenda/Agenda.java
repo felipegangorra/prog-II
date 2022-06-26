@@ -13,7 +13,7 @@ public class Agenda {
 	/**
 	 * Determina o tamanho máximo da lista de contatos.
 	 */
-	private static final int TAMANHO_AGENDA = 100;
+	private static final int TAMANHO_AGENDA = 101;
 
 	/**
 	 * Determina o tamanho máximo da lista de favoritos.
