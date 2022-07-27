@@ -18,4 +18,6 @@ public interface Busca {
 	 * @return
 	 */
 	 public Map<Documento, Integer> busca(DocumentoService ds);
+	 
+	 //public String [][] descreverConsulta();	//busca avançada
 }

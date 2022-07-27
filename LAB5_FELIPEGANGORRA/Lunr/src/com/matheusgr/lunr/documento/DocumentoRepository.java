@@ -72,9 +72,9 @@ class DocumentoRepository {
 	}
 
 	/**
-	 * realiza uma busca pelos metadados		//03
+	 * realiza uma busca pelos metadados e fazer verificação (?)		//03
 	 */
-	public  Set<Documento> busca(Map<String, String> metadados) {
+	public Set<Documento> busca(Map<String, String> metadados) {
 		Set<Documento> documentosMetadados = new HashSet<>();			//falta arrumar isso!
 		return documentosMetadados;
 	}
