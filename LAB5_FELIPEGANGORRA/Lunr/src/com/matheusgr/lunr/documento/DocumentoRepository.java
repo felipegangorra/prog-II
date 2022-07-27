@@ -74,8 +74,17 @@ class DocumentoRepository {
 	/**
 	 * realiza uma busca pelos metadados e fazer verificação (?)		//03
 	 */
-	public Set<Documento> busca(Map<String, String> metadados) {
+	public Set<Documento> busca(String chave, String valor) {
 		Set<Documento> documentosMetadados = new HashSet<>();			//falta arrumar isso!
+		
+		for (Documento documento : documentos.values()) {
+			Map<String, String> mapaDeMetadados = documento.getMetadados();
+			if (mapaDeMetadados.containsKey(chave)) {
+				if (mapaDeMetadados.get(chave).equals(valor)) {
+					documentosMetadados.add(documento);
+				}
+			}
+		}
 		return documentosMetadados;
 	}
 }

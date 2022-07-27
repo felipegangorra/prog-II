@@ -137,8 +137,8 @@ public class DocumentoService {
 	 * @param metadados
 	 * @return
 	 */
-	public Set<Documento> busca(Map<String, String> metadados) {
-		return this.dr.busca(metadados);										
+	public Set<Documento> busca(String chave, String valor) {
+		return this.dr.busca(chave, valor);										
 	}
 
 }
