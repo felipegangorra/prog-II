@@ -131,5 +131,14 @@ public class DocumentoService {
 	public Set<Documento> busca(String termo) {
 		return this.dr.busca(termo);
 	}
+	
+	/**
+	 * Realiza uma busca simples por documentos que possuem determinado metadados.			//02
+	 * @param metadados
+	 * @return
+	 */
+	public Set<Documento> busca(Map<String, String> metadados) {
+		return this.dr.busca(metadados);										
+	}
 
 }
