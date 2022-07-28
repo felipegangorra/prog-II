@@ -1,5 +1,11 @@
 package com.matheusgr.similaridade;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
+import com.matheusgr.lunr.documento.Documento;
 import com.matheusgr.lunr.documento.DocumentoService;
 
 /**
@@ -43,11 +49,27 @@ public class SimilaridadeService {
 		this.documentoService.recuperaDocumento(docId1);
 		// PEGA DOCUMENTO 1
 		// PEGA DOCUMENTO 2
+		Optional<Documento> documento01 = this.documentoService.recuperaDocumento(docId1);
+		Optional<Documento> documento02 = this.documentoService.recuperaDocumento(docId2);
+		
 		// COLOCA TERMOS DO DOCUMENTO 1 EM UM CONJUNTO
 		// COLOCA TERMOS DO DOCUMENTO 2 EM OUTRO CONJUNTO
+		Set<String> documento01Set = new HashSet<String>(Arrays.asList(this.documentoService.recuperaDocumento(docId1).get().getTexto()));
+		Set<String> documento02Set = new HashSet<String>(Arrays.asList(this.documentoService.recuperaDocumento(docId2).get().getTexto()));
+		
 		// A SIMILARIDADE É DETERMINADA PELO...
 		// --> (TAMANHO DA INTERSEÇÃO) / (TAMANHO DA UNIÃO DOS CONJUNTOS)
-		throw new UnsupportedOperationException();
+		Set<String> documentoTotal = new HashSet<String>(){{addAll(Arrays.asList(documento01.get().getTexto()));
+		addAll(Arrays.asList(documento02.get().getTexto()));}};
+
+		int aux = 0;
+		for (Object palavra : documento01Set.toArray()) {
+			if (documento02Set.contains(palavra)) {
+				aux ++;
+			}
+		}
+		double tamanho = aux / documentoTotal.size();
+		return tamanho;
 	}
 
 }
