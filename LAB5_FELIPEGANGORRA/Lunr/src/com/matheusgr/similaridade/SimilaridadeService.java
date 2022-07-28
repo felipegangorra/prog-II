@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.matheusgr.lunr.documento.Documento;
 import com.matheusgr.lunr.documento.DocumentoService;
@@ -49,27 +50,28 @@ public class SimilaridadeService {
 		this.documentoService.recuperaDocumento(docId1);
 		// PEGA DOCUMENTO 1
 		// PEGA DOCUMENTO 2
-		Optional<Documento> documento01 = this.documentoService.recuperaDocumento(docId1);
-		Optional<Documento> documento02 = this.documentoService.recuperaDocumento(docId2);
+		Documento documento01 = this.documentoService.recuperaDocumento(docId1).get();
+		Documento documento02 = this.documentoService.recuperaDocumento(docId2).get();
 		
 		// COLOCA TERMOS DO DOCUMENTO 1 EM UM CONJUNTO
 		// COLOCA TERMOS DO DOCUMENTO 2 EM OUTRO CONJUNTO
-		Set<String> documento01Set = new HashSet<String>(Arrays.asList(this.documentoService.recuperaDocumento(docId1).get().getTexto()));
-		Set<String> documento02Set = new HashSet<String>(Arrays.asList(this.documentoService.recuperaDocumento(docId2).get().getTexto()));
+		Set<String> documento01Set = new HashSet<>(Arrays.asList(documento01.getTexto()));
+		Set<String> documento02Set = new HashSet<>(Arrays.asList(documento02.getTexto()));
 		
 		// A SIMILARIDADE É DETERMINADA PELO...
 		// --> (TAMANHO DA INTERSEÇÃO) / (TAMANHO DA UNIÃO DOS CONJUNTOS)
-		Set<String> documentoTotal = new HashSet<String>(){{addAll(Arrays.asList(documento01.get().getTexto()));
-		addAll(Arrays.asList(documento02.get().getTexto()));}};
+
+	    Set<String> docTotal = new HashSet<>(documento01Set);
+	    docTotal.addAll(documento02Set);
 
 		int aux = 0;
-		for (Object palavra : documento01Set.toArray()) {
-			if (documento02Set.contains(palavra)) {
-				aux ++;
-			}
+		for (Object doc : documento01Set.toArray()) {
+			if (documento02Set.contains(doc)){ aux++; }		//se tiver soma 1
 		}
-		double tamanho = aux / documentoTotal.size();
-		return tamanho;
+	    
+		int intersecao = aux;
+		
+		return (double) intersecao/docTotal.size();
 	}
 
 }
