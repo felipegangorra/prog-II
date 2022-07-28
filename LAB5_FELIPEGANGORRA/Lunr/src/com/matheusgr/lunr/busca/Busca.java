@@ -6,18 +6,21 @@ import com.matheusgr.lunr.documento.Documento;
 import com.matheusgr.lunr.documento.DocumentoService;
 
 /**
- * interface de busca
- * @author gangorra
- *
+ * interface de busca, representando a busca do sistema.
  */
 public interface Busca {
 
 	/**
-	 * metodo reponsavel por realizar a busca!
-	 * @param ds
-	 * @return
+	 * Busca através do DocumentoService, onde são feitas as operações de busca simples e avançada.
+	 * 
+	 * @param DocumentoService utilizado na busca
+	 * @return mapa com os documentos encontrados.
 	 */
 	 public Map<Documento, Integer> busca(DocumentoService ds);
 	 
-	 //public String [][] descreverConsulta();	//busca avançada
+	 /**
+	  * Descreve consulta da busca.
+	  * @return
+	  */
+	 public String [][] descreverConsulta();
 }

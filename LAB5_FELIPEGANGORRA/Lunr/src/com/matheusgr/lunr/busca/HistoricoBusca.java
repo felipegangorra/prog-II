@@ -6,7 +6,7 @@ package com.matheusgr.lunr.busca;
  */
 public class HistoricoBusca {
 
-	private BuscaSimples busca;
+	private Busca buscado;
 	private String[] documentosIds;
 
 	/**
@@ -16,8 +16,8 @@ public class HistoricoBusca {
 	 * @param busca      Objeto de busca realizado.
 	 * @param documentos Resultado da pesquisa.
 	 */
-	public HistoricoBusca(BuscaSimples busca, String[] documentosIds) {
-		this.busca = busca;
+	public HistoricoBusca(Busca buscado, String[] documentosIds) {
+		this.buscado = buscado;
 		this.documentosIds = documentosIds;
 	}
 
@@ -30,7 +30,7 @@ public class HistoricoBusca {
 	 *         VALOR).
 	 */
 	public String[][] debug() {
-		return this.busca.descreveConsulta();
+		return this.buscado.descreverConsulta();
 	}
 
 	/**

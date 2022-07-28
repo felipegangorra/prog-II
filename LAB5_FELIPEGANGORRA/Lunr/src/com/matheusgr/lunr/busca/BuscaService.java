@@ -40,13 +40,13 @@ public class BuscaService {
 	 * Realiza uma operação de busca simples. Toda busca deve retornar um documento
 	 * e grau de relevância (de maior para menor).
 	 * 
-	 * @param buscaSimples Busca a ser realizada.
+	 * @param buscado Busca a ser realizada.
 	 * @return Resultado das buscas.
 	 */
-	public DocumentoDTO[] busca(BuscaSimples buscaSimples) {
-		Map<Documento, Integer> respostaDocumento = buscaSimples.busca(this.ds);
+	public DocumentoDTO[] busca(Busca buscado) {
+		Map<Documento, Integer> respostaDocumento = buscado.busca(this.ds);
 		DocumentoDTO[] documentos = ordena(respostaDocumento);
-		this.br.adicionaBusca(buscaSimples, documentos);
+		this.br.adicionaBusca(buscado, documentos);
 		return documentos;
 	}
 
@@ -66,10 +66,9 @@ public class BuscaService {
 	}
 
 	/**
-	 * Recupera o histórico de busca a partir do número de busca (onde zero
-	 * representa a primeira busca).
+	 * Recupera o histórico de busca
 	 * 
-	 * @param numero Número da busca a ser recuperada do histórico.
+	 * @param numero da busca a ser recuperado.
 	 * @return HistóricoBusca na ordem cadastrada.
 	 */
 	public HistoricoBusca recuperaHistorico(int numero) {

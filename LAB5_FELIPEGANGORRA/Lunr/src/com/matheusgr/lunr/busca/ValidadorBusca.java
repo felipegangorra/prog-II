@@ -27,16 +27,20 @@ class ValidadorBusca extends ValidadorPadrao {
 	}
 	
 	/**
-	 * Valida metadados.		//00
+	 * Valida os metadados de busca. Os metadados de busca não podem ser objetos nulos
+	 * e pelo menos um metadados deve ser não vazio.
+	 * 
+	 * @param metadados a serem buscados.
 	 */
-	  public void validaMetadados(Map<String, String> metadados) {
-		    Objects.requireNonNull(metadados, "Metadados não pode ser nulo");
-		    for (String key : metadados.keySet()) {
-		      if (metadados.get(key).isBlank()) {
-		        throw new IllegalArgumentException("Nenhum metadado pode ser vazio");
-		      }
-		    }
-		  }
+	public void valida(Map<String, String> metadados) {
+		Objects.requireNonNull(metadados, "Conteúdo não pode ser nulo");
+		for (String t : metadados.keySet()) {
+			if (!t.isBlank()) {
+				return;
+			}
+		}
+		throw new IllegalArgumentException("Pelo menos um termo não deve ser vazio");
+	}
 
 	/**
 	 * Valida o número do histórico de busca. Deve ser positivo.

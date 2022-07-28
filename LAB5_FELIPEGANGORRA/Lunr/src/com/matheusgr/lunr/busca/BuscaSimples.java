@@ -58,19 +58,21 @@ class BuscaSimples implements Busca {
 		}
 		return respostaDocumento;
 	}
-
+	
 	/**
 	 * Descreve uma consulta para explicar a consulta que foi feita.
 	 * 
-	 * @return Descrição da busca, onde cada linha representa um parâmetro de busca
-	 *         e as colunas representam um detelhamento de cada parâmetro.
+	 * @return Descrição da busca.
 	 */
-	public String[][] descreveConsulta() {
+
+	@Override
+	public String[][] descreverConsulta() {
 		String[][] resultado = new String[this.termos.length][];
 		for (int i = 0; i < resultado.length; i++) {
 			resultado[i] = new String[] {"TERMO " + (i + 1), this.termos[i]};
 		}
 		return resultado;
 	}
-	
+
+
 }

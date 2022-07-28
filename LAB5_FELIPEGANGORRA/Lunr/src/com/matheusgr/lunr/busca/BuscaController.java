@@ -49,16 +49,12 @@ public class BuscaController {
 	/**
 	 * Busca documentos a partir dos metadados existentes.
 	 * 
-	 * Os documentos retornados precisam ter todos os metadados listados como
-	 * parâmetro.
-	 * 
-	 * @param metadados Metadados que devem estar todos presentes nos documentos
-	 *                  retornados.
-	 * @return Array com DocumentoDTO. Não há ordenação definida.
+	 * @param metadados que devem estar todos presentes nos documentos retornados.
+	 * @return Array com DocumentoDTO sem ordem.
 	 */
 	public DocumentoDTO[] busca(Map<String, String> metadados) {
-		// TODO
-		throw new UnsupportedOperationException("TODO");
+		this.bv.valida(metadados);
+		return this.bs.busca(new BuscaAvancada(metadados));
 	}
 
 	/**

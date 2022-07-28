@@ -72,19 +72,20 @@ class DocumentoRepository {
 	}
 
 	/**
-	 * realiza uma busca pelos metadados e fazer verificação (?)		//03
+	 * Realiza uma busca pelos metadados.
+	 * 
+	 * @param metadados a ser buscado.
+	 * @return Conjunto de documentos com o metadados.
 	 */
-	public Set<Documento> busca(String chave, String valor) {
-		Set<Documento> documentosMetadados = new HashSet<>();			//falta arrumar isso!
+	public Set<Documento> busca(Map<String, String> metadados) {
+		Set<Documento> documentosVerificados = new HashSet<>();
 		
-		for (Documento documento : documentos.values()) {
-			Map<String, String> mapaDeMetadados = documento.getMetadados();
-			if (mapaDeMetadados.containsKey(chave)) {
-				if (mapaDeMetadados.get(chave).equals(valor)) {
-					documentosMetadados.add(documento);
-				}
+		for (Documento documento: this.documentos.values()) {
+			if (documento.getMetadados().keySet().containsAll(metadados.keySet())
+					&& documento.getMetadados().values().containsAll(metadados.values())) {
+				documentosVerificados.add(documento);
 			}
 		}
-		return documentosMetadados;
+		return documentosVerificados;
 	}
 }

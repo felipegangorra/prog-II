@@ -133,12 +133,12 @@ public class DocumentoService {
 	}
 	
 	/**
-	 * Realiza uma busca simples por documentos que possuem determinado metadados.			//02
+	 * Realiza uma busca simples por documentos que possuem determinado metadados.
 	 * @param metadados
 	 * @return
 	 */
-	public Set<Documento> busca(String chave, String valor) {
-		return this.dr.busca(chave, valor);										
+	public Set<Documento> busca(Map<String, String> metadados) {
+		return this.dr.busca(metadados);
 	}
 
 }
