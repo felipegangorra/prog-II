@@ -13,6 +13,8 @@ class BaseTest {
 	public static final String TEXTO2_ID = "ABC";
 	public static final String JAVA_ID = "456";
 	public static final String HTML_ID = "123";
+	public static final String TEXTO3_ID = "119";
+	public static final String TEXTO4_ID = "666";
 	
 	protected DocumentoController documentoController;
 	protected BuscaController buscaController;
