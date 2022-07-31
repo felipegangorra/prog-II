@@ -7,6 +7,8 @@ import com.matheusgr.lunr.documento.DocumentoService;
 
 /**
  * interface de busca, representando a busca do sistema.
+ * 
+ * @author Felipe Gangorra
  */
 public interface Busca {
 
@@ -20,6 +22,7 @@ public interface Busca {
 	 
 	 /**
 	  * Descreve consulta da busca.
+	  * 
 	  * @return
 	  */
 	 public String [][] descreverConsulta();

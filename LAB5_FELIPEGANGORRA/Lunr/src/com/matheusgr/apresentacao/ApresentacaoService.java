@@ -24,7 +24,7 @@ public class ApresentacaoService {
 	}
 
 	/**
-	 * Realiza a apresentação do documento indicado.
+	 * Realiza a apresentação do documento indicado em caixa alta.
 	 * 
 	 *  
 	 * @param docId1 Documento a ser apresentado.
@@ -41,6 +41,15 @@ public class ApresentacaoService {
 		return saida;
 	}
 
+	/**
+	 * Realiza a apresentação do documento indicado de acordo com o esperado, podendo
+	 * ser em Primeiras linhas ou em últimas linhas.
+	 * 
+	 * @param docId Documento a ser apresentado.
+	 * @param tipoApresentacao modo de apresentacao a ser aplicado sobre o documento.
+	 * @param numLinhas Quantidade de linhas para fragmentar documento.
+	 * @return Documento editado.
+	 */
 	public String apresenta(String docId, String tipoApresentacao, int numLinhas) {
 		
 		Optional<Documento> documento =  this.documentoService.recuperaDocumento(docId);

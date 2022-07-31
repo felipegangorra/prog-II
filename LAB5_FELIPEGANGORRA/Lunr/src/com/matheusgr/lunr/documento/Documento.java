@@ -48,6 +48,11 @@ public interface Documento {
 	 */
 	Map<String, String> getMetadados();
 	
+	/**
+	 * Retorna o documento em String.
+	 * 
+	 * @return String contendo documento.
+	 */
 	String getTextOriginal();
 
 }

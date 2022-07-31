@@ -6,12 +6,19 @@ import java.util.Map;
 import com.matheusgr.lunr.documento.Documento;
 import com.matheusgr.lunr.documento.DocumentoService;
 
+/**
+ * Classe de buscas avançadas.
+ * 
+ * @author Felipe Gangorra
+ *
+ */
 public class BuscaAvancada implements Busca {
 	
 	private Map<String, String> metadados;
 	
 	/**
 	 * Construtor da classe avançada com os metodos.
+	 * 
 	 * @param metadados a serem pesquisados
 	 */
 	public BuscaAvancada(Map<String, String> metadados) {
