@@ -100,4 +100,9 @@ class DocumentoJava implements Documento {
 		return metadados2;
 	}
 
+	@Override
+	public String getTextOriginal() {
+		return this.original;
+	}
+
 }

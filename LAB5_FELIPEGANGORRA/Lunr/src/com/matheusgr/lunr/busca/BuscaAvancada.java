@@ -28,6 +28,7 @@ public class BuscaAvancada implements Busca {
 	 */
     public Map<Documento, Integer> busca(DocumentoService ds) {
         Map<Documento, Integer> respostaDocumento = new HashMap<>();
+        
         for (String metaKey : this.metadados.keySet()) {
             if (metaKey.isBlank()) {
                 continue;

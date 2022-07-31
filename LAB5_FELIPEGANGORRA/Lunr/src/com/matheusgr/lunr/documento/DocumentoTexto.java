@@ -85,4 +85,9 @@ class DocumentoTexto implements Documento {
 		return this.metadados;
 	}
 
+	@Override
+	public String getTextOriginal() {
+		return this.original;
+	}
+
 }

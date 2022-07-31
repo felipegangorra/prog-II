@@ -28,5 +28,4 @@ public class ApresentacaoController {
 	public String apresenta(String docId, String tipoApresentacao) {
 		return apresentacaoService.apresenta(docId, tipoApresentacao);
 	}
-
 }

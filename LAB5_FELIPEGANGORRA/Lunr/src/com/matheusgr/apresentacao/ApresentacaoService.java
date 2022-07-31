@@ -1,5 +1,8 @@
 package com.matheusgr.apresentacao;
 
+import java.util.Optional;
+
+import com.matheusgr.lunr.documento.Documento;
 import com.matheusgr.lunr.documento.DocumentoService;
 
 /**
@@ -29,10 +32,25 @@ public class ApresentacaoService {
 	 */
 	public String apresenta(String docId, String tipoApresentacao) {
 		
-		this.documentoService.recuperaDocumento(docId);
-		//TO DO
-		return "";
+		Optional<Documento> documento =  this.documentoService.recuperaDocumento(docId);
+		String texto = documento.get().getTextOriginal();
+		String saida = "";
 		
+		switch (tipoApresentacao) {
+		case "cp":
+			saida = new ApresentacaoCaixaAlta(texto).apresentacao();
+			break;
+		case "pl":
+			saida = new ApresentacaoPrimeirasLinhas(texto, 5).apresentacao();
+			break;
+		case "ul":
+			saida = new ApresentacaoUltimasLinhas(texto, 5).apresentacao();
+			break;
+		default:
+			break;
+		}
+		
+		return saida;
 	}
 
 }
