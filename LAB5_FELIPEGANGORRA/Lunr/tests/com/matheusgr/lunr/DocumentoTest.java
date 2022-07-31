@@ -54,4 +54,13 @@ class DocumentoTest extends BaseTest {
 		assertEquals(0.80, doc.metricaTextoUtil(), 0.01);
 	}
 	
+	@Test
+	void testTotalDocumentos() {
+		assertEquals(4, this.documentoController.totalDocumentos());
+	}
+	
+	@Test
+	void TestSumariza() {
+		assertArrayEquals(new String[] {"arquivo", "simples", "linhas", "AVANÇO"}, this.documentoController.sumariza(TEXTO2_ID));
+	}
 }

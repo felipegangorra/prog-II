@@ -28,4 +28,9 @@ public class ApresentacaoController {
 	public String apresenta(String docId, String tipoApresentacao) {
 		return apresentacaoService.apresenta(docId, tipoApresentacao);
 	}
+	
+	public String apresenta(String docId, String tipoApresentacao, int numLinhas) {
+		return apresentacaoService.apresenta(docId, tipoApresentacao, numLinhas);
+	}
+
 }

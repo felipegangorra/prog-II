@@ -35,22 +35,26 @@ public class ApresentacaoService {
 		Optional<Documento> documento =  this.documentoService.recuperaDocumento(docId);
 		String texto = documento.get().getTextOriginal();
 		String saida = "";
-		
-		switch (tipoApresentacao) {
-		case "cp":
-			saida = new ApresentacaoCaixaAlta(texto).apresentacao();
-			break;
-		case "pl":
-			saida = new ApresentacaoPrimeirasLinhas(texto, 5).apresentacao();
-			break;
-		case "ul":
-			saida = new ApresentacaoUltimasLinhas(texto, 5).apresentacao();
-			break;
-		default:
-			break;
-		}
+
+		saida = new ApresentacaoCaixaAlta(texto).apresentacao();
 		
 		return saida;
 	}
 
+	public String apresenta(String docId, String tipoApresentacao, int numLinhas) {
+		
+		Optional<Documento> documento =  this.documentoService.recuperaDocumento(docId);
+		String texto = documento.get().getTextOriginal();
+		String saida = "";
+		
+		if (tipoApresentacao.equals("pl")) {
+			saida = new ApresentacaoLinhas(texto, numLinhas, "primeiras").apresentacao();
+		}
+		if (tipoApresentacao.equals("ul")) {
+			saida = new ApresentacaoLinhas(texto, numLinhas, "segundas").apresentacao();
+		}
+		
+		return saida;
+	}
+	
 }
